@@ -1,0 +1,522 @@
+@charset "UTF-8";
+
+
+*{
+    margin: 0 ;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
+    /* 幅を指定した要素（タグ）にborder、paddingを設定した際に要素が広がってしまうことを防ぐため */
+}
+
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    /*   ここまでフォントファミリー  各OSに適したフォントを用意しておく*/
+    color: #555;
+    /* サイト全体の文字色を定義しておく */
+}
+
+
+
+ul {
+    list-style: none;
+    /*   liの装飾を削除する  */
+}
+
+
+a {
+    text-decoration: none;
+    /*   aタグの初期設定。aタグはでデフォルトで持っている下線を消しておく */
+}
+
+img{
+    max-width: 100%;
+    /* 親要素の大きさ以上大きくならず、かつ、自身の原寸大以上に大きくならない */
+    height: auto;
+    /* レイアウトシフトを起こさないようにimgタグにwidthと、heightを設定させたときのCSSでの対処方法 */
+    vertical-align: bottom;
+    /* imgは、文字と同等扱いなので、必ず下部に余白（デセンダー）が出来てしまうのを防ぐ。他の防ぐ方法としてインライン要素をブロック要素に変える方法もあり */
+}
+
+
+
+
+/*-----------------------------------------
+    pc max- setting   
+-----------------------------------------*/
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/*PCの情報コンテンツの最大幅の設定 ------ 各パーツでこのCSSを再利用（マルチクラス）、または流用*/
+/*-----------------------------------------
+    header setting
+------------------------------------------*/
+
+.header_inner {
+    display: flex;
+    /* 子要素、水平方向の揃えの親要素設定  */
+    height: 100px;
+    /* 高さ指定 */
+    align-items: center;
+    /* heightの垂直中央揃えのオプション  */
+    justify-content: space-between;
+}
+
+header h1{
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+header p{
+    font-size: 14px;
+
+}   
+
+
+header .query{
+    display: inline-block;
+    padding: 13px 30px;
+    color: #fff;
+    background-color: #806b58;
+}
+        
+
+
+
+
+/*-----------------------------------------
+    nav_menu setting
+------------------------------------------*/
+
+nav{
+    background-color:#806b58;
+    margin-bottom: 5px;
+    /* margin_bottomに関しては、個人的にあった方が良いかも？ */
+}
+
+
+nav ul {
+    display: flex ;
+    /* 子要素、水平方向の揃えの親要素設定  */   
+}
+
+nav li{
+    width: 25%;
+    border-left: 1px dotted #fff;
+}
+
+nav li:last-child {
+    border-right: 1px dotted #fff;
+}
+
+nav li a {
+    display: block;
+    text-align: center;
+    line-height: 65px;
+    /* aの高さを65pxに取得 */
+    color: #fff;
+    transition: 0.3s;  
+}
+
+nav li a:hover {
+    color: #444;
+    background-color: #ebe6c4;
+}
+
+
+/*-----------------------------------------
+    main_image setting
+------------------------------------------*/
+
+.main_image{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+/*-----------------------------------------
+    main.container
+------------------------------------------*/
+    main.container{
+        margin: 0 auto 100px;
+        /* mainについている、クラスcontainerだけmargin-bottomが100pxの設定         */
+    }
+
+/*-----------------------------------------
+    content title
+------------------------------------------*/
+ .title{
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 0 70px;
+}
+
+.title h2{
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.title p{
+    line-height: 1.7;
+}
+
+
+/*-----------------------------------------
+    .content setting
+------------------------------------------*/
+.content{
+    margin-bottom: 100px;
+    /* 次の下のブロックに余白を設定 */
+}
+
+
+.content h3{
+    border-left: 6px solid #806b58;
+    padding:2px 10px; 
+    font-size: 20px;  
+    margin-bottom: 15px;  
+}
+
+.content h4{
+    font-size: 18px;  
+    margin-bottom: 15px;
+}
+
+.content h4 span{
+    font-size: 14px;
+
+}
+
+.content .content_item{
+    display: flex;
+    /* 子要素、水平方向の揃えの親要素設定  */
+    justify-content: space-between;
+    /*  水平方向の揃えのオプション ( 両端揃い )*/
+    margin-bottom: 50px;
+     /* 次の下のブロックに余白を設定 */
+     /* flex-direction: row-reverse; */
+
+}
+.content .content_item.rev{
+/* ある特定のブロックを方向を逆にするためのクラス */
+    flex-direction: row-reverse;
+}
+
+.content .content_item .photo{
+    width: 30%;
+    /* 幅の取得 */
+}
+.content .content_item .content_text{
+    width: 65%;
+    /* 幅の取得 */  
+}
+.content .content_item .text{
+    line-height: 1.7;
+    /* 一番読みやすい行間は、line-heightの、1.5～2の間とされてる */    
+    letter-spacing: 0.05em;
+    /* 一番読みやすい文字間は、letter-spacingの、0.05em～0.08emの間とされてる ただし、教科書も含めて多少のデータの前後あり*/
+    font-size: 14px;
+}
+
+
+/*-----------------------------------------
+    news setting
+------------------------------------------*/
+
+.news h3{
+    border-left: 6px solid #806b58;
+    padding:2px 10px; 
+    font-size: 20px;  
+    margin-bottom: 15px;   
+}
+
+
+.news dl {
+    display: flex;
+    /* 子要素、水平方向の揃えの親要素設定  */
+    flex-wrap: wrap;
+    /* 親要素の幅を超えたときの折り返し */
+    margin-bottom: 30px;
+    /* dt,ddの下の余白を開ける */
+
+
+}
+
+.news dt{
+    width: 20%;
+    line-height: 50px;
+    /* 親要素で設定した高さ内で、1行の文字列を垂直中央に配置 */
+    text-align: center;
+    background-color: #806b58;
+    color: #fff;
+    margin-bottom: 20px;
+    
+}
+
+.news dd{
+    width: 80%;
+    line-height: 1.5;
+    /* 行間少し狭めで設定 */
+    padding-left: 30px;
+
+}
+
+.news dd a{
+    color: #555;
+}
+
+.news dd a:hover{
+    text-decoration: underline;
+}
+
+/*-----------------------------------------
+    footer setting
+------------------------------------------*/
+
+footer{
+    background-color: #806b58;
+}
+
+
+.footer_inner p{
+    text-align: right;
+    line-height: 100px;
+}
+.footer_inner small{
+    color: #fff;
+}
+
+/*-----------------------------------------
+    call to action setting
+------------------------------------------*/
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(40, 40, 40, 0.5); 
+    width: 100%;
+    height: 100%;
+    display: none;
+
+}
+
+.bg .pr{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* inset: 0; */
+    max-width: 600px;
+    height: 250px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.bg h3{
+    font-size: 22px;
+}
+
+.bg .pr .cross{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.bg .pr .text{
+    padding:20px 10px;
+    line-height: 1.7;
+}
+
+.bg .pr_btn{
+    display: block;
+    width: 80%;
+    margin: 10px auto 0;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #806b58;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+
+}
+
+/* -------------------------------
+ responsive setting
+----------------------------------*/
+@media (max-width:768px){
+
+/* header */
+
+header{
+    margin-bottom: 5px;
+}
+
+.header_inner {
+    display: block;
+    /* 子要素、縦並び  */
+    height: auto;
+    /* 高さ初期化(auto) */
+}
+
+header h1{
+    text-align: center;
+    padding: 20px 0 10px;
+    margin-bottom: 0;
+}
+
+header p{
+    text-align: center;
+    padding-bottom: 20px;
+} 
+
+header .query{
+    display: block;
+    padding: 13px 0;
+    text-align: center;
+}
+
+/* nav burger menuに変更する*/
+
+nav{
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+nav.drawer{
+    left: 0;
+}
+
+nav ul {
+    display: block ;
+    padding-top: 80px;  
+}
+
+nav li{
+    width: auto;
+    border-left: 0px;
+    border-bottom: 1px dotted #fff;
+}
+
+nav li:last-child {
+    border-right: 0;
+}
+
+nav li:first-child{
+    border-top: 1px dotted #fff;
+}
+
+/* burger */
+
+#burger{border: 1px solid #806b58;
+    width: 50px;
+    height: 40px;
+    position: fixed;
+    top: 3%;
+    right: 2%;
+    z-index: 2;
+}
+
+#burger span{
+    position: absolute;
+    width: 70%;
+    height: 2px;
+    background-color: #806b58;
+    inset: 0;
+    margin: auto;
+    transition: 0.3s;
+}
+
+#burger span:nth-child(1){
+    top: -35%;
+}
+
+#burger span:nth-child(3){
+    top: 35%;
+}
+
+#burger.active{
+    border: 1px solid #fff;
+}
+
+#burger.active span{
+    background-color: #fff;
+    top: 0;
+}
+
+/* main container */
+
+main.container{
+    /* margin: 0 auto 100px; */
+    padding: 0 20px;
+}
+
+/* content */
+
+.content .content_item{
+    display: block;
+    /* 子要素、縦並び */
+    margin-bottom: 70px;
+     /* 次の下のブロックに余白を設定 */
+     /* flex-direction: row-reverse; */
+}
+
+.content .content_item .photo{
+    width: auto;
+    /* 幅の初期化 */
+    margin-bottom: 10px;
+}
+
+.content .content_item .content_text{
+    width: auto;
+    /* 幅の初期化 */
+}
+
+/* news */
+
+.news dl {
+    display: block;
+    /* 子要素、縦並び  */
+    margin-bottom: 30px;
+}
+
+.news dt{
+    width: auto;
+    /* line-height: 50px; */
+    /* 親要素で設定した高さ内で、1行の文字列を垂直中央に配置 */
+    margin-bottom: 10px;
+    
+}
+
+.news dd{
+    width: auto;
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+
+/* footer */
+
+.footer_inner p{
+    text-align: center;
+}
+
+}
+
+
